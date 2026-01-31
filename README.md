@@ -9,9 +9,9 @@
 ## 回退功能
 
 ![alt text](image.png)
-> 可回退的前提是UndoStack中有卡片
+**可回退的前提是UndoStack中有卡片**
 
-> 入栈和回退功能都需设置各卡牌数组的剩余数量，以便检查是否胜利
+**入栈和回退功能都需设置各卡牌数组的剩余数量，以便检查是否胜利**
 - 替换操作
     - currentCard压入UndoStack栈中
     - 被点击卡牌代替currentCard,并设置下一张卡牌isTouchEnabled为true
@@ -110,7 +110,7 @@ else
 }
 ~~~
 
-将PlayField卡牌分为不同的堆，可大大降低判断卡牌是否可触摸的难度
+**将PlayField卡牌分为不同的堆，可大大降低判断卡牌是否可触摸的难度**
 
 ### 加载逻辑
 
@@ -160,21 +160,21 @@ bool LoadLevelFromJson(const std::string& jsonContent, LevelConfig& levelConfig,
 
 如果加入新卡牌属性：
 首先更新各枚举，然后再次额外加入if判断
-也可以用常量记录属性数量，在此即可从数组中循环读取数据（但要保证属性一一对应）
+也可以用常量记录属性数量，在此即可从数组中**循环读取数据**（**但要保证属性一一对应**）
 
 
-## 添加新卡牌
+## 添加新卡牌及其回退功能
 
 新卡牌的图片资源命名风格与其他资源保持一致
 将新元素加入数组中，
-> 每个元素下标与枚举值一一对应
+**每个元素下标与枚举值一一对应**
 
 std::vector<std::string> NumText = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 
-使用字符串格式化路径，无需代码修改
+使用字符串格式化路径，**无需代码修改**
 std::string smallRedNumPath = cocos2d::StringUtils::format("res/res/number/small_red_%s.png", NumText[card.face].c_str());
 
-> 新卡牌同样采用本项目的弹栈方式实现回退功能，区别不大。
+**新卡牌同样采用本项目的弹栈方式实现回退功能，区别不大。**
 
 
 
